@@ -36,6 +36,6 @@ jobs:
         git config --global user.email "kate.wang22@gmail.com"
         git config --global user.name "zhongqi22"
     - name: Deploy to GitHub Pages
-      run: npx angular-cli-ghpages --dir=dist/kendo-interactive-gantt --no-silent
+      run: npx angular-cli-ghpages --dir=dist/kendo-interactive-gantt/browser --no-silent
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
