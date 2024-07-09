@@ -30,7 +30,7 @@ jobs:
       # working-directory: 'ClientApp'
       env:
         KENDO_UI_LICENSE: ${{ secrets.KENDO_UI_LICENSE }}
-    - run: ng build --configuration production --base-href "https://github.com/zhongqi22/kendo-interactive-gantt/"
+    - run: ng build --configuration production --base-href "https://zhongqi22.github.io/kendo-interactive-gantt/"
     - name: Configure Git
       run: |
         git config --global user.email "kate.wang22@gmail.com"
