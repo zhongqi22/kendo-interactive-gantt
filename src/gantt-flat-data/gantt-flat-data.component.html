@@ -1,0 +1,54 @@
+<div class="gantt-container">
+    <kendo-gantt
+        #myGantt
+        [kendoGanttFlatBinding]="data"
+        parentIdField="parentTaskId"
+        idField="id"
+        [dependencies]="dependencies"
+        kendoGanttSelectable
+        [selectable]="true"
+        [isSelected]="isSelected"
+        (cellClick)="toggleSelection($event)"
+        (taskClick)="toggleSelection($event)"
+        kendoGanttExpandable
+        [initiallyExpanded]="true"
+    >
+        <kendo-gantt-column
+            field="id"
+            title="Id"
+            [width]="100"
+            [expandable]="true"
+        ></kendo-gantt-column>
+        <kendo-gantt-column
+            field="title"
+            title="Task"
+            [width]="200"
+            [expandable]="true"
+        ></kendo-gantt-column>
+        <kendo-gantt-timeline-day-view></kendo-gantt-timeline-day-view>
+        <kendo-gantt-timeline-week-view></kendo-gantt-timeline-week-view>
+        <kendo-gantt-timeline-month-view></kendo-gantt-timeline-month-view>
+        <ng-template
+            kendoGanttToolbarTemplate
+            [position]="'top'"
+            let-position="position">
+            <div class="toolbar-top">
+                <div>
+                    Selected SKU IDs: {{ selectedKeys | json}}
+                    <br/>
+                    <button kendoButton (click)="clearSelection()">Clear Selection</button>
+                </div>
+                <kendo-toolbar-spacer></kendo-toolbar-spacer>
+                <div>
+                    <kendo-gantt-view-selector
+                        [views]="views"
+                        [(activeView)]="activeView"
+                    ></kendo-gantt-view-selector>
+                </div>
+            </div>
+        </ng-template>
+    </kendo-gantt>
+</div>
+
+
+  
